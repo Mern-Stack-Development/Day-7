@@ -5,6 +5,7 @@ const connectDB = require('./Database/Connect');
 
 const postMessageRoute = require('./routes/postmessage.route');
 const getMessageRoute = require('./routes/getmessage.route');
+const getSpecificRoute = require('./routes/getmessagebyid.route');
 
 require('dotenv').config();
 connectDB(process.env.MONGODB_URL);
@@ -23,3 +24,4 @@ app.listen(PORT, () => {
 
 app.use('/post-message',postMessageRoute);
 app.use('/get-message',getMessageRoute);
+app.use('/get-specific-message',getSpecificRoute);
