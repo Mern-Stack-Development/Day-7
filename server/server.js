@@ -9,6 +9,8 @@ const getSpecificRoute = require('./routes/getmessagebyid.route');
 const updateMessageRoute = require('./routes/updatemessage.route');
 const deleteMessageRoute = require('./routes/deletemessage.route');
 
+const register = require('./routes/register.route');
+
 require('dotenv').config();
 connectDB(process.env.MONGODB_URL);
 
@@ -29,3 +31,5 @@ app.use('/get-message',getMessageRoute);
 app.use('/get-specific-message',getSpecificRoute);
 app.use('/update-message',updateMessageRoute);
 app.use('/delete-message',deleteMessageRoute);
+
+app.use('/register',register);
