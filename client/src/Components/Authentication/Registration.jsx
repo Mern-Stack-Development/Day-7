@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'; 
 
 const Registration = () => {
     const [formData, setFormData] = useState({
@@ -9,6 +10,7 @@ const Registration = () => {
         age: ''
     });
     const [error, setError] = useState('');
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -25,6 +27,7 @@ const Registration = () => {
             await axios.post('http://localhost:5000/register', formData);
             console.log('Registration successful');
             setError('');  // Reset error on success
+            navigate('/login');  // Redirect to login page
         } catch (err) {
             console.error('Registration failed', err.response.data);
             setError(err.response.data.message);  // Set error message

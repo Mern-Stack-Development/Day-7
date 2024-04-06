@@ -11,6 +11,9 @@ const deleteMessageRoute = require('./routes/deletemessage.route');
 
 const register = require('./routes/register.route');
 const login = require('./routes/login.route');
+const loginJWT = require('./routes/login.route.JWT');
+
+const postMessageAuthenticateRoute = require('./routes/postmessageauthenticate.route');
 
 require('dotenv').config();
 connectDB(process.env.MONGODB_URL);
@@ -35,3 +38,6 @@ app.use('/delete-message',deleteMessageRoute);
 
 app.use('/register',register);
 app.use('/login',login);
+app.use('/loginJWT',loginJWT);
+
+app.use('/post-message-authenticate',postMessageAuthenticateRoute);
