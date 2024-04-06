@@ -10,6 +10,7 @@ const updateMessageRoute = require('./routes/updatemessage.route');
 const deleteMessageRoute = require('./routes/deletemessage.route');
 
 const register = require('./routes/register.route');
+const login = require('./routes/login.route');
 
 require('dotenv').config();
 connectDB(process.env.MONGODB_URL);
@@ -33,3 +34,4 @@ app.use('/update-message',updateMessageRoute);
 app.use('/delete-message',deleteMessageRoute);
 
 app.use('/register',register);
+app.use('/login',login);
