@@ -3,8 +3,12 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const connectDB = require('./Database/Connect');
 
+const postMessageRoute = require('./routes/postmessage.route');
+
 require('dotenv').config();
 connectDB(process.env.MONGODB_URL);
+
+
 
 const app = express();
 const PORT = 5000;
@@ -16,4 +20,4 @@ app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
 
-
+app.use('/post-message',postMessageRoute);
