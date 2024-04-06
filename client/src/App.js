@@ -13,6 +13,7 @@ import PostJWT from './Components/Authorization/PostJWT';
 import GetSpecificUserMsgs from './Components/Authorization/GetSpecificUserMsgs';
 import ProtectedRoutesJWT from './Components/Authorization/ProtectedRoutesJWT';
 import GetJWT from './Components/Authorization/GetJWT';
+import LogoutButton from './Components/Logout';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path="/" element={<Registration />} />
           <Route path="/login" element={<LoginJWT />} />
           <Route path="/createPost" element={<PostJWT />} />
+          <Route path="/logout" element={<LogoutButton />} />
 
           {/* Protected Routes with JWT */}
           <Route element={<ProtectedRoutesJWT />}>
@@ -31,6 +33,7 @@ function App() {
           </Route>
         </Routes>
       </Router>
+      
     </div>
   );
 }

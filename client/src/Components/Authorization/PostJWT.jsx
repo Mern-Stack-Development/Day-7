@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import LogoutButton from '../Logout';
 
 const PostJWT = () => {
     const [message, setMessage] = useState('');
@@ -33,6 +34,7 @@ const PostJWT = () => {
             />
             <button onClick={sendToServer}>Send</button>
             {error && <p style={{color: 'red'}}>{error}</p>}
+            <LogoutButton/>
         </div>
     );
 };
