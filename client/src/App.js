@@ -10,6 +10,9 @@ import Login from './Components/Authentication/Login';
 import Registration from './Components/Authentication/Registration';
 import LoginJWT from './Components/Authorization/LoginJWT';
 import PostJWT from './Components/Authorization/PostJWT';
+import GetSpecificUserMsgs from './Components/Authorization/GetSpecificUserMsgs';
+import ProtectedRoutesJWT from './Components/Authorization/ProtectedRoutesJWT';
+
 
 function App() {
   return (
@@ -17,8 +20,14 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Registration />} />
-          <Route path="/login" element={<LoginJWT/>} />
+          <Route path="/login" element={<LoginJWT />} />
           <Route path="/createPost" element={<PostJWT />} />
+
+          {/* Protected Routes with JWT */}
+          <Route element={<ProtectedRoutesJWT />}>
+            <Route path="getSpecificUserMsg" element={<GetSpecificUserMsgs/>} />
+            <Route path="getAll" element={<CrudGet />} />
+          </Route>
         </Routes>
       </Router>
     </div>

@@ -14,6 +14,8 @@ const login = require('./routes/login.route');
 const loginJWT = require('./routes/login.route.JWT');
 
 const postMessageAuthenticateRoute = require('./routes/postmessageauthenticate.route');
+const getMessageAuthenticateRoute = require('./routes/getmessageauthenticate.route');
+const getUserMessageRoute = require('./routes/getmessageofuser.route.js');
 
 require('dotenv').config();
 connectDB(process.env.MONGODB_URL);
@@ -41,3 +43,5 @@ app.use('/login',login);
 app.use('/loginJWT',loginJWT);
 
 app.use('/post-message-authenticate',postMessageAuthenticateRoute);
+app.use('/get-message-authenticate',getMessageAuthenticateRoute);
+app.use('/user-message',getUserMessageRoute);
